@@ -1,7 +1,20 @@
 
 // COLORES
-$rosa: #f92a82;
-$verde: #31f420;
-$azul: #3066be;
-$negro: #000;
-$blanco: #fff;
+$colores:(
+    rosa: #f92a82,
+    verde: #31f420,
+    azul: #3066be,
+    negro: #000,
+    blanco: #fff
+);
+
+@each $color, $value in $colores {
+    #{color} {
+        color: #{$value};
+    }
+}
+
+
+// OPERACIONES
+$alto: 400px;
+$ancho: 1000px;

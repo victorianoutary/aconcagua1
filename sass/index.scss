@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap");
+@import "./misc/mixins";
 @import "./misc/variables";
+
+//Normalize
+$theme:dark;
+
 
 *,
 *::before,
@@ -12,12 +17,17 @@
 }
 
 body {
+  @if $theme == dark {
+    background-color:map-get($colores, negro);
+    color: map-get($colores, blanco);
+  }
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   width: 100%;
   height: 100vh;
 }
+
 /*RESPONSIVE*/
 /*smartphone*/
 @media (max-width: 480px) {
@@ -37,9 +47,7 @@ body {
   }
   #paginas {
     grid-area: paginas;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex3 (column, center);
     padding-bottom: 390px;
   }
 
@@ -49,61 +57,44 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     &__caja {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: flex-end;
-        flex-wrap: wrap;
+      @include flex (column, flex-end, flex-end,wrap)
       }
     
       &__slogan {
-        background-color: $negro;
-        color:  $blanco;
-        font-style: normal;
-        font-weight: 100;
-        font-size: 14px;
-        font-family: "Roboto", sans-serif;
+        background-color: map-get($colores, negro);
+        color:  map-get($colores, blanco);
+        @include font (normal, 100, 14px);
+        font-family: "roboto", sans-serif;
         margin-top: 20px;
         padding-left: 30px;
         padding-right: 20px;
         &:hover {
-            color: $verde;
+            color: map-get($colores, verde);
           }
       }
+    
       &__texto {
-        color:  $blanco;
+        color:  map-get($colores, blanco);
         background-color: rgba(0, 0, 0, 0.3);
-        font-style: normal;
-        font-weight: 100;
-        font-size: 14px;
-        font-family: "Roboto", sans-serif;
+        @include font(normal, 100, 14px);
+        font-family: "roboto", sans-serif;
         line-height: 3;
         margin: 10px;
         padding-left: 10px;
         padding-top: 40px;
         max-width: 200px;
         &:hover {
-            color: $verde;
+            color: map-get($colores, verde);
           }
       }
-      &__slogan--destacado {
-        color:  $blanco;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 18px;
-        font-family: "Roboto", sans-serif;
-        &:hover {
-            color: $verde;
-          }
-      }
+    
+     
       
       &__enlace {
-        background-color: $rosa;
-        color:  $blanco;
-        font-style: normal;
-        font-weight: 100;
-        font-size: 10px;
-        font-family: "Roboto", sans-serif;
+        background-color: map-get($colores, rosa);
+        color:map-get($colores, blanco);
+        @include font (normal, 100, 10px);
+        font-family: "roboto", sans-serif;
         text-decoration: none;
         padding: 5px;
         margin-right: 20px;
@@ -113,25 +104,19 @@ body {
         }
       }
     }
- 
-  /*LINKS*/
    /*LINKS*/
    .enlaces {
-    background-color: $negro;
-    font-style: normal;
-    font-weight: 100;
-    font-size: 10px;
-    font-family: "Roboto", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: map-get($colores, negro);
+    @include font(normal, 100, 10px);
+    font-family: "roboto", sans-serif;
+    @include flex2 (column, center);
     justify-content: space-evenly;
     & a {
       text-decoration: none;
-      color:  $blanco;
+      color: map-get($colores, blanco);
     }
     &__nombre {
-      background-color: $azul;
+      background-color: map-get($colores, azul);
       padding: 3px;
       margin-left: 80px;
     }
@@ -140,13 +125,13 @@ body {
       margin-left: 10px;
       margin-bottom: 3%;
       border-radius: 10px;
-      background-color: $negro;
+      background-color: map-get($colores, negro);
       &:hover {
         transition: 1s;
         transform: scale(1.2);
       }
     }
-  }
+   }
   /*FOOTER*/
   footer {
     margin-top: 100%;
@@ -154,7 +139,7 @@ body {
   }
   .footer {
     padding: 15%;
-    background-color:  $rosa;
+    background-color: map-get($colores, rosa);
   }
 }
 /**********************tablet*********************/
@@ -168,7 +153,7 @@ body {
         "marca caja" /*fila2*/
         "paginas paginas" /*fila3*/
         "pie pie" /*fila4*/;
-      grid-template-rows: 20% 80% 130% 10%;
+      grid-template-rows: 30% 80% 130% 10%;
       grid-template-columns: 3fr 2fr;
     }
   
@@ -186,32 +171,25 @@ body {
       background-repeat: no-repeat;
       background-size: cover;
       &__caja {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: flex-end;
-        height: 470px;
-        width: 1300px;
+        @include flex (column, flex-end, flex-end,wrap);
+        height: $alto+70;
+        width: $ancho+300;
         grid-area: caja;
       }
       &__slogan {
         background-color: rgba(0, 0, 0, 0.3);
-        color: $blanco;
-        font-style: normal;
-        font-weight: 100;
-        font-size: 20px;
-        font-family: "Roboto", sans-serif;
+        color: map-get($colores, blanco);
+        @include font (normal, 100, 20px);
+        font-family: "roboto", sans-serif;
         margin-right: 615px;
         &:hover {
-            color: $verde;
+            color: map-get($colores, verde);
           }
       }
       &__texto {
-        color: $blanco;
-        font-style: normal;
-        font-weight: 100;
-        font-size: 20px;
-        font-family: "Roboto", sans-serif;
+        color:map-get($colores, blanco);
+        @include font(normal, 100, 20px);
+        font-family: "roboto", sans-serif;
         line-height: 1.7;
         margin: 10px;
         margin-top: 30px;
@@ -220,26 +198,15 @@ body {
         max-width: 200px;
         float: right;
         &:hover {
-            color: $verde;
+            color: map-get($colores, verde);
           }
       }
-      &__slogan--destacado {
-        color: $blanco;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 30px;
-        font-family: "Roboto", sans-serif;
-     &:hover {
-        color: $verde;
-      } }
-
+    }
       &__enlace {
-        background-color:  $rosa;
-        color: $blanco;
-        font-style: normal;
-        font-weight: 100;
-        font-size: 16px;
-        font-family: "Roboto", sans-serif;
+        background-color: map-get($colores, rosa);
+        color:map-get($colores, blanco);
+        @include font(normal, 100, 16px);
+        font-family: "roboto", sans-serif;
         text-decoration: none;
         margin-right: 730px;
         padding: 5px;
@@ -247,30 +214,23 @@ body {
         transition: 1s;
         transform: scale(1.1);
       }}
-     }
     
     /*LINKS*/
     .enlaces {
-      background-color: $negro;
-      font-style: normal;
-      font-weight: 100;
-      font-size: 16px;
-      font-family: "Roboto", sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      background-color: map-get($colores, negro);
+      @include font( normal, 100, 16px);
+      font-family: "roboto", sans-serif;
+      @include flex2 (column, center);
       padding-bottom: 80px;
       padding-top: 40px;
     & a{ text-decoration: none;
-        color: $blanco;
+        color:  map-get($colores, blanco);
         padding-left: 10px;}
         &__nombre {
-            background-color: $azul;
+            background-color: map-get($colores, azul);
           }
           &__img {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            @include flex2(column, center);
             width: 18%;
             border-radius: 20px;
             margin-left: 10px;
@@ -282,10 +242,10 @@ body {
         }  
         /*FOOTER*/
       .footer{
-        background-color: $rosa;
+        background-color: map-get($colores, rosa);
       }
-    
 }
+
 /**********************desktop********************/
 @media (min-width: 1024px) {
     #container {
@@ -297,7 +257,7 @@ body {
         "marca" /*fila2*/
         "paginas" /*fila3*/
         "pie" /*fila4*/;
-      grid-template-rows: 25% auto 20% 10%;
+      grid-template-rows: 40% auto 20% 10%;
       grid-template-columns: auto;
     }
    
@@ -310,35 +270,29 @@ body {
     }
     .main {
       background-image: url(../images/montana.jpg);
-      height: 600px;
+      height: $alto+200;
       background-repeat: no-repeat;
       background-size: cover;
       &__caja {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: flex-end;
-        height: 470px;
-        width: 1300px;
+        @include flex (column, flex-end, flex-end,wrap);
+        height: $alto+70;
+        width: $ancho+300;
       }
      &__slogan {
-        background-color: $negro;
-        color: $blanco;
-        font-style: normal;
-        font-weight: 100;
-        font-size: 20px;
-        font-family: "Roboto", sans-serif;
+        background-color: map-get($colores, negro);
+        color: map-get($colores, blanco);
+        @include font(normal, 100, 20px);
+        font-family: "roboto", sans-serif;
         margin-right: 165px;
         &:hover {
-            color: $verde;
+            color: map-get($colores, verde);
           }
       }
+     
       &__texto {
-        color:$blanco;
-        font-style: normal;
-        font-weight: 100;
-        font-size: 20px;
-        font-family: "Roboto", sans-serif;
+        color:map-get($colores, blanco);
+        @include font(normal, 100, 20px);
+        font-family: "roboto", sans-serif;
         line-height: 1.7;
         margin: 10px;
         margin-top: 70px;
@@ -347,27 +301,15 @@ body {
         max-width: 200px;
         float: right;
         &:hover {
-            color: $verde;
+            color: map-get($colores, verde);
           }
       }
-    
-      &__slogan--destacado {
-        color: $blanco;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 30px;
-        font-family: "Roboto", sans-serif;
-        &:hover {
-            color: $verde;
-          }
-      }
+
       &__enlace {
-        background-color:  $rosa;
-        color: $blanco;
-        font-style: normal;
-        font-weight: 100;
-        font-size: 16px;
-        font-family: "Roboto", sans-serif;
+        background-color: map-get($colores, rosa);
+        color: map-get($colores, blanco);
+        @include font (normal, 100, 16px);
+        font-family: "roboto", sans-serif;
         text-decoration: none;
         margin-right: 250px;
         padding: 5px;
@@ -375,110 +317,23 @@ body {
             transition: 1s;
             transform: scale(1.1);
           }}
-      }
-    /*LINKS*/
-    @media (min-width: 1024px) {
-      #container {
-        display: grid;
-        /*estrucura container*/
-        grid-template-areas: "encabezado" "marca" "paginas" "pie";
-        grid-template-rows: 35% auto 20% 10%;
-        grid-template-columns: auto;
-      }
-      /*MAIN*/
-      #marca {
-        grid-area: marca;
-      }
-      #paginas {
-        grid-area: paginas;
-      }
-      .main {
-        background-image: url(../images/montana.jpg);
-        height: 600px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        &__caja {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          justify-content: flex-end;
-          height: 470px;
-          width: 1300px;
         }
-        &__slogan {
-          background-color: $negro;
-          color: $blanco;
-          font-style: normal;
-          font-weight: 100;
-          font-size: 20px;
-          font-family: "Roboto", sans-serif;
-          margin-right: 165px;
-          &:hover {
-            color: $verde;
-          }
-        }
-        &__texto {
-          color: $blanco;
-          font-style: normal;
-          font-weight: 100;
-          font-size: 20px;
-          font-family: "Roboto", sans-serif;
-          line-height: 1.7;
-          margin: 10px;
-          margin-top: 70px;
-          margin-right: 200px;
-          padding: 5px;
-          max-width: 200px;
-          float: right;
-          &:hover {
-            color: $verde;
-          }
-        }
-        
-        &__slogan--destacado {
-          color: $blanco;
-          font-style: normal;
-          font-weight: bold;
-          font-size: 30px;
-          font-family: "Roboto", sans-serif;
-          &:hover {
-            color: $verde;
-        } }
-        &__enlace {
-          background-color:  $rosa;
-          color: $blanco;
-          font-style: normal;
-          font-weight: 100;
-          font-size: 16px;
-          font-family: "Roboto", sans-serif;
-          text-decoration: none;
-          margin-right: 250px;
-          padding: 5px;
-          &:hover {
-            transition: 1s;
-            transform: scale(1.1);
-          }
-        }
-      }      
+      
       /*LINKS*/
       .enlaces {
-        background-color: $negro;
-        font-style: normal;
-        font-weight: 100;
-        font-size: 16px;
-        font-family: "Roboto", sans-serif;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+        background-color:map-get($colores, negro);
+        @include font(normal, 100, 16px);
+        font-family: "roboto", sans-serif;
+        @include flex2 (row, space-evenly);
         padding-bottom: 40px;
     
         margin-bottom: -375px;
         & a {
           text-decoration: none;
-          color: $blanco;
+          color:map-get($colores, blanco);
         }
         &__nombre {
-          background-color: $azul;
+          background-color:map-get($colores, azul);
         }
         &__img {
           display: flex;
@@ -498,31 +353,30 @@ body {
       .footer {
         margin-top: 20%;
         padding: 3%;
-        background-color:  $rosa;
+        background-color: map-get($colores, rosa);
       }
-    }}
-    /*Volver al menu ppal SMART*/
+    }
+    
+    /*********************Volver al menu ppal SMART***********************/
 
 .menuprincipal {
-    background-color: $negro;
+    background-color: map-get($colores, negro);
     &__texto {
-        color: $blanco;
-        font-weight: 100;
-        font-size: 10px;
-        font-style: normal;
+        color:map-get($colores, blanco);
+        @include font (normal,100,10px);
         font-family: "Roboto", sans-serif;
         text-decoration: none;
       }
       &__logo {
-        width: 20px;
-        height: 10px;
+        width: ($ancho/20)-30;
+        height: ($alto/30);
         margin-top: 15px;
         margin-left: 20px;
       }}
 
 /************************************************ANIMACIONES HOVER***********************************/
 .texto-hover:hover {
-  color: $verde;
+  color:map-get($colores, verde);
 }
 .header__link:hover {
   transition: 1s;
@@ -535,4 +389,42 @@ body {
 .footer__hover:hover {
   transition: 1s;
   transform: scale(1.1);
+}
+
+
+/*EXTEND*/
+%slogan_desktop {
+  background-color: map-get($colores, negro);
+  color: map-get($colores, blanco);
+  @include font (normal, 100, 20px);
+  font-family: "Roboto", sans-serif;
+  margin-right: 165px;
+}
+
+%slogan_tablet{
+  background-color: rgba(0, 0, 0, 0.3);
+        color: map-get($colores, blanco);
+        @include font (normal,100, 20px);
+        font-family: "Roboto", sans-serif;
+        margin-right: 615px;
+}
+
+%slogan_smart{
+  background-color: map-get($colores, negro);
+        color:  map-get($colores, blanco);
+        @include font(normal, 100, 14px);
+        font-family: "Roboto", sans-serif;
+        margin-top: 20px;
+        padding-left: 30px;
+        padding-right: 20px;
+
+}
+
+.slogan__destacado{
+  @extend %slogan_desktop;
+  font-size: 30px;
+  font-weight: bold;
+   &:hover {
+    color: map-get($colores, verde);
+  } 
 }
