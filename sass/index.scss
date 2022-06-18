@@ -153,7 +153,7 @@ body {
         "marca caja" /*fila2*/
         "paginas paginas" /*fila3*/
         "pie pie" /*fila4*/;
-      grid-template-rows: 30% 80% 130% 10%;
+      grid-template-rows: 30% 80% 130% 20%;
       grid-template-columns: 3fr 2fr;
     }
   
@@ -241,8 +241,13 @@ body {
           }
         }  
         /*FOOTER*/
+        footer {
+          grid-area: pie;
+        
+        }
       .footer{
         background-color: map-get($colores, rosa);
+        
       }
 }
 

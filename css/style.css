@@ -138,7 +138,7 @@ body {
     display: grid;
     /*estrucura container*/
     grid-template-areas: "encabezado encabezado" "marca caja" "paginas paginas" "pie pie";
-    grid-template-rows: 30% 80% 130% 10%;
+    grid-template-rows: 30% 80% 130% 20%;
     grid-template-columns: 3fr 2fr; }
   /*MAIN*/
   #marca {
@@ -227,6 +227,8 @@ body {
         transition: 1s;
         transform: scale(1.2); }
   /*FOOTER*/
+  footer {
+    grid-area: pie; }
   .footer {
     background-color: #f92a82; } }
 
