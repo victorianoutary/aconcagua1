@@ -1,0 +1,39 @@
+//CLIENTES
+.pt-5 pb-3{
+    color: map-get($colores, blanco);
+}
+
+.card-text{
+background-color: map-get($colores, blanco);
+color: map-get($colores, negro);
+@include font (normal, light, 16px)
+}
+
+.card-body{
+    background-color: map-get($colores,blanco);
+    color: map-get($colores, negro);
+}
+
+.btn{
+    background-color: map-get($colores, azul);
+    color: map-get($colores, blanco);
+    display: flex;
+    justify-content: center;
+    @include font (normal, light, 14px)
+}
+
+// EMPEZA
+.formulario{
+    background-color: map-get($colores, negro);
+    color: map-get($colores, blanco);
+}
+.m-4{
+    background-color: map-get($colores, azul);
+    border: map-get($colores, azul);
+    color: map-get($colores, blanco);
+}
+
+//TODAS LAS PAGINAS
+.text-decoration-none{
+    color: map-get($colores, blanco);
+}

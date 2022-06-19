@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap");
 @import "./misc/mixins";
 @import "./misc/variables";
+// VIEWS
+@import "./views/pages.scss";
+
+
+
+
 
 //Normalize
 $theme:dark;
@@ -149,12 +155,11 @@ body {
       /*estrucura container*/
       grid-template-areas: 
           /*1 columna 4 filas*/
-        "encabezado encabezado" /*fila1*/
-        "marca caja" /*fila2*/
-        "paginas paginas" /*fila3*/
-        "pie pie" /*fila4*/;
-      grid-template-rows: 30% 80% 130% 20%;
-      grid-template-columns: 3fr 2fr;
+        "encabezado" /*fila1*/
+        "marca" /*fila2*/
+        "paginas" /*fila3*/
+        "pie" /*fila4*/;
+      grid-template-rows: auto auto auto 10%;
     }
   
     /*MAIN*/
@@ -166,15 +171,13 @@ body {
     }
     .main {
       background-image: url(../images/montanatabl.jpg);
-      height: 110%;
-      width: 80%;
+      height: 130vh;
       background-repeat: no-repeat;
       background-size: cover;
       &__caja {
         @include flex (column, flex-end, flex-end,wrap);
         height: $alto+70;
         width: $ancho+300;
-        grid-area: caja;
       }
       &__slogan {
         background-color: rgba(0, 0, 0, 0.3);
@@ -201,7 +204,7 @@ body {
             color: map-get($colores, verde);
           }
       }
-    }
+    
       &__enlace {
         background-color: map-get($colores, rosa);
         color:map-get($colores, blanco);
@@ -209,11 +212,12 @@ body {
         font-family: "roboto", sans-serif;
         text-decoration: none;
         margin-right: 730px;
+        margin-top: 30px;
         padding: 5px;
       &:hover {
         transition: 1s;
         transform: scale(1.1);
-      }}
+      }}}
     
     /*LINKS*/
     .enlaces {
@@ -223,9 +227,11 @@ body {
       @include flex2 (column, center);
       padding-bottom: 80px;
       padding-top: 40px;
+      margin-left: 210px;
     & a{ text-decoration: none;
         color:  map-get($colores, blanco);
-        padding-left: 10px;}
+        padding-left: 10px;
+    }
         &__nombre {
             background-color: map-get($colores, azul);
           }
@@ -234,6 +240,7 @@ body {
             width: 18%;
             border-radius: 20px;
             margin-left: 10px;
+            margin-bottom: 15px;
             &:hover {
                 transition: 1s;
                 transform: scale(1.2);
