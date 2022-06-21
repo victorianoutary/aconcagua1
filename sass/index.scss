@@ -4,10 +4,6 @@
 // VIEWS
 @import "./views/pages.scss";
 
-
-
-
-
 //Normalize
 $theme:dark;
 
@@ -369,7 +365,7 @@ body {
       }
     }
     
-    /*********************Volver al menu ppal SMART***********************/
+    /*********************Volver al menu ppal***********************/
 
 .menuprincipal {
     background-color: map-get($colores, negro);
