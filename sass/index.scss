@@ -41,7 +41,7 @@ body {
         "marca"
         "paginas"
         "pie";
-      grid-template-rows: 45% 50% 20% 10%;
+      grid-template-rows: 45% 90% 40% 20%;
     }
   /*MAIN*/
   #marca {
@@ -55,7 +55,7 @@ body {
 
   .main {
     background-image: url(../images/montanasmart.png);
-    height: 40vh;
+    height: 50vh;
     background-repeat: no-repeat;
     background-size: cover;
     &__caja {
@@ -101,6 +101,7 @@ body {
         text-decoration: none;
         padding: 5px;
         margin-right: 50px;
+        margin-bottom: 5px;
         &:hover {
             transition: 1s;
             transform: scale(1.1);
@@ -116,7 +117,8 @@ body {
     justify-content: space-evenly;
     & a {
       text-decoration: none;
-      color: map-get($colores, blanco); 
+      color: map-get($colores, blanco);
+ 
     }
     &__nombre {
       background-color: map-get($colores, azul);

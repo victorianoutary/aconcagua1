@@ -72,7 +72,7 @@ body {
   #container {
     display: grid;
     grid-template-areas: "encabezado" "marca" "paginas" "pie";
-    grid-template-rows: 45% 50% 20% 10%; }
+    grid-template-rows: 45% 80% 40% 20%; }
   /*MAIN*/
   #marca {
     grid-area: marca; }
@@ -84,7 +84,7 @@ body {
     padding-bottom: 390px; }
   .main {
     background-image: url(../images/montanasmart.png);
-    height: 40vh;
+    height: 50vh;
     background-repeat: no-repeat;
     background-size: cover; }
     .main__caja {
@@ -129,7 +129,8 @@ body {
       font-family: "roboto", sans-serif;
       text-decoration: none;
       padding: 5px;
-      margin-right: 50px; }
+      margin-right: 50px;
+      margin-bottom: 5px; }
       .main__enlace:hover {
         transition: 1s;
         transform: scale(1.1); }
